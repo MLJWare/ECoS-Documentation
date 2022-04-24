@@ -47,6 +47,9 @@ Lists all elements in `[folder]` (defaults to code root), starting with `[start]
 ## `CARTS [start]`
 Lists all cartridges starting with `[start]`.
 
+## `CARTSDIR`
+Opens the cartridges folder in the native system file explorer.
+
 ## `MEMCLR [start] [size]`
 Clears the memory.  
 If `[start]` is specified, memory will be cleared starting at this address.  
@@ -58,16 +61,15 @@ address `<index>`.
 
 **NOTE**: 
 The arguments to `MEMCLR` and `MEMCPY` both accept basic arithmetic
-expressions consisting of `+ - * /` operations, as well as the following
-symbolic addresses:
+expressions consisting of `+ - * /` operations, parentheses, as well as the following symbolic addresses:
 
-* `FONT`  : Memory address of the first character of the text font,
-* `#FONT` : Size of a single font character, in bytes,
-* `GFX`   : Memory address of the internal graphics sprites,
-* `#GFX`  : Size of a single internal graphics sprite,
-* `SPR`   : Memory address of the first user editable sprite,
-* `#SPR`  : Size of a single user editable sprite, in bytes (including the bit flags),
-* `LVL`   : Memory address of the first tile in the level,
-* `#LVL`  : Size of the entire level, in bytes,
-* `SFX`   : Memory address of the first user definable sound effect/melody, and
-* `#SFX`  : Size of a single user definable sound effect/melody, in bytes
+* `FONT`  : Memory address of the first character of the text font.
+* `#FONT` : Size of a single font character, in bytes.
+* `GFX`   : Memory address of the internal graphics sprites.
+* `#GFX`  : Size of a single internal graphics sprite.
+* `SPR`   : Memory address of the first user editable sprite.
+* `#SPR`  : Size of a single user editable sprite, in bytes (including the bit flags).
+* `LVL`   : Memory address of the first tile in the level.
+* `#LVL`  : Size of the entire level, in bytes.
+* `SFX`   : Memory address of the first user definable sound effect/melody.
+* `#SFX`  : Size of a single user definable sound effect/melody, in bytes.
