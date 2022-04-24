@@ -11,7 +11,7 @@ To open this, type the command `IMAGE` in the Terminal and press _enter_.
 
 ![](images/Terminal-IMAGE-cmd.png)
 
-(For information on how to use the Image Editor, see [Using the Image Editor](../Using-the-Image-Editor.html).)
+(For information on how to use the Image Editor, see [Using the Image Editor](../Using-the-Image-Editor.md).)
 
 For the game we're going to make, we'll be needing 4 images:
 1. The head of the snake.
@@ -44,7 +44,7 @@ To open this, type the command `LEVEL` in the Terminal and press _enter_.
 
 ![](images/Terminal-LEVEL-cmd.png)
 
-(For information on how to use the Level Editor, see [Using the Level Editor](../Using-the-Level-Editor.html).)
+(For information on how to use the Level Editor, see [Using the Level Editor](../Using-the-Level-Editor.md).)
 
 The level we'll be making in this tutorial is rather simple; all we technically need is a border around the edge of the display. 
 However, to make things a bit more interesting we're going to make it so that if the snake reaches the end of the screen it'll re-appear from the opposite side. 
@@ -66,7 +66,7 @@ To open this, type the command `SYNTH` in the Terminal and press _enter_.
 
 ![](images/Terminal-SYNTH-cmd.png)
 
-(For information on how to use the Synthesizer/Music Tracker, see [Using the Synthesizer/Music Tracker](../Using-the-Synthesizer_Music-Tracker.html).)
+(For information on how to use the Synthesizer/Music Tracker, see [Using the Synthesizer/Music Tracker](../Using-the-Synthesizer_Music-Tracker.md).)
 
 We're going to need three sound effects, as well as a simple melody to loop in the background:
 
@@ -91,7 +91,7 @@ With everything else prepared, we're finally ready to write the code for our gam
 
 ![](images/Terminal-EDIT-Snake-cmd.png)
 
-(For information on how to use the Code Editor, see [Using the Code Editor](../Using-the-Code-Editor.html).)
+(For information on how to use the Code Editor, see [Using the Code Editor](../Using-the-Code-Editor.md).)
 
 ECoS has a powerful Entity-Component-System architecture at its core. 
 This tutorial won't go into the details on this architecture, but the overall idea is that it splits all game code up into three overall concepts; _entities_, _components_, and _systems_. 
@@ -105,16 +105,16 @@ Three different kinds of systems exist:
 
 * **Setup systems**, which will be executed once at the beginning of the game. 
   These systems can be useful to set up the initial state of the game, such as creating the initial entities. 
-  The special function [`SETUP( fn )`](../api/level-api/Level-Functions.html#setup-fn1) is used to register a setup system (where `fn` is the function to register).
+  The special function [`SETUP( fn )`](../api/level-api/Level-Functions.md#setup-fn1) is used to register a setup system (where `fn` is the function to register).
 
 * **Update systems**, which will be executed once each frame. These systems are where the game logic occurs. 
-  The special function [`UPDATE( fn )`](../api/level-api/Level-Functions.html#update-fn1) is used to register an update system (where `fn` is the function to register).
+  The special function [`UPDATE( fn )`](../api/level-api/Level-Functions.md#update-fn1) is used to register an update system (where `fn` is the function to register).
 
     > Note: It's common to split separate concepts into separate systems, such as a system to deal with moving the player entity, a separate system for handling collisions, etc.
 
 * **Render systems**, which will be executed once each frame, after the update systems have been executed. 
   These systems are where all the code related to drawing the content of the game should occur. 
-  The special function [`DRAW( fn )`](../api/level-api/Level-Functions.html#draw-fn1) is used to register a render system (where `fn` is the function to register).
+  The special function [`DRAW( fn )`](../api/level-api/Level-Functions.md#draw-fn1) is used to register a render system (where `fn` is the function to register).
 
 ### Creating the Setup System
 
@@ -173,7 +173,7 @@ Each of these will be used as follows:
     ```
     This function will be used to grow the snake, by appending a new segment to the end of the snakes body. 
 
-    1. First, we use the [`NEW`](../api/level-api/Level-Functions.html#new-template) function to create a new entity based on our `T_BODY` template.
+    1. First, we use the [`NEW`](../api/level-api/Level-Functions.md#new-template) function to create a new entity based on our `T_BODY` template.
 
     2. Next, we set the position of the segment to the position of the snake's current tail.
 
@@ -197,7 +197,7 @@ SETUP(function ()
 ...
 ```
 Here, we're setting up the initial values of our variables. 
-Note how the [`NEW`](../api/level-api/Level-Functions.html#new-template) function is used to create a new entity with a `pos`, `dir` and `img` component. This entity is going to represent the head of the snake. Unlike the rest of the snake, this entity doesn't have a `target` component; instead it has a `dir` component which we'll use to keep track of which direction the snake is currently moving.
+Note how the [`NEW`](../api/level-api/Level-Functions.md#new-template) function is used to create a new entity with a `pos`, `dir` and `img` component. This entity is going to represent the head of the snake. Unlike the rest of the snake, this entity doesn't have a `target` component; instead it has a `dir` component which we'll use to keep track of which direction the snake is currently moving.
 
 We want the snake to have a small body from the beginning, so that it doesn't start out as a disembodied head. Luckily, all we need to do to give it a body is to call our `Grow` function a couple of times, to add a few segments to the body.
 
@@ -219,8 +219,8 @@ end)
 ```
 1. We start by picking a random `x` and `y` position. For the x-coordinate we'll pick a random number between 1 and 14 (since the entire screen is 16 tiles wide and we don't want to spawn the apple on the border). Similarly, for the y-coordinate we'll pick a random number between 2 and 14 (since the entire screen is 16 tiles tall and we don't want to spawn the apple on the border, nor should it spawn inside the part of the screen where we show the score).
 2. Our snake starts out at position `{x = 8, y = 8}`, so to make sure we don't spawn the apple directly inside the snake's head, we check to see if the randomly picked tile position is equal to this, in which case we move it to a different spot.
-3. Once we have the random position for the apple, we use the [`MAP`](../api/level-api/Level-Functions.html#map-x-y) function to override the tile at that location in the level with our apple tile (id `5`).
-4. Finally, we use [`SNDL`](../api/Sound-API.html#sndl-id) to start our background music (id `4`) playing in a loop.
+3. Once we have the random position for the apple, we use the [`MAP`](../api/level-api/Level-Functions.md#map-x-y) function to override the tile at that location in the level with our apple tile (id `5`).
+4. Finally, we use [`SNDL`](../api/Sound-API.md#sndl-id) to start our background music (id `4`) playing in a loop.
 
 ### Processing Input
 
@@ -238,7 +238,7 @@ function ProcessInput()
   end
 end
 ```
-Here we're using the [`ALL`](../api/level-api/Level-Functions.html#all-class-) function to iterate through all entities with a `dir` component, using the [`KEY`](../api/Input-API.html#key-key) function to check which direction the player is pressing and updating the `dir` accordingly. We also make sure to initialize `tick` to `-1` if it wasn't already initialized. Doing so will allow us to wait for the first button to be pressed before we start running out `tick` counter.
+Here we're using the [`ALL`](../api/level-api/Level-Functions.md#all-class-) function to iterate through all entities with a `dir` component, using the [`KEY`](../api/Input-API.md#key-key) function to check which direction the player is pressing and updating the `dir` accordingly. We also make sure to initialize `tick` to `-1` if it wasn't already initialized. Doing so will allow us to wait for the first button to be pressed before we start running out `tick` counter.
 
 
 > You might be wondering why we're using a for-loop to achieve what is essentially just updating the `dir` component on the head of the snake, when we could have just kept a direct reference to it instead. Indeed, either approach would work just fine in this case, however, there are some advantages to doing it this way instead: 
@@ -316,7 +316,7 @@ function MoveHead()
   in ALL("pos", "dir") do
 ...
 ```
-Next, we'll use [`SND`](../api/Sound-API.html#snd-id) to play our movement sound effect (id `1`) .
+Next, we'll use [`SND`](../api/Sound-API.md#snd-id) to play our movement sound effect (id `1`) .
 ```lua
 ...
     SND(1)
@@ -332,7 +332,7 @@ After this we'll handle the actual movement of the head, including the wrapping 
     pos.y = y
 ...
 ```
-Here, we're using the [`OVFW`](../api/math-api/General-Math-Functions.html#ovfw-n-min-max) function to handle the wrapping and update the position of the head. Note that we're also storing the coordinates of the new position in the local variables `x` and `y` for use throughout the rest of the function.
+Here, we're using the [`OVFW`](../api/math-api/General-Math-Functions.md#ovfw-n-min-max) function to handle the wrapping and update the position of the head. Note that we're also storing the coordinates of the new position in the local variables `x` and `y` for use throughout the rest of the function.
 
 After this we'll write the code that'll handle colliding with an apple or a wall tile.
 ```lua
@@ -351,10 +351,10 @@ After this we'll write the code that'll handle colliding with an apple or a wall
     end
 ...
 ```
-Here, we're using the [`MAP`](../api/level-api/Level-Functions.html#map-x-y) function to retrieve the id of the tile below the head. 
-We then use the [`FLG`](../api/level-api/Level-Functions.html#flg-id-mask) function to check whether the tile is an apple (indicated by bit flag 1). 
+Here, we're using the [`MAP`](../api/level-api/Level-Functions.md#map-x-y) function to retrieve the id of the tile below the head. 
+We then use the [`FLG`](../api/level-api/Level-Functions.md#flg-id-mask) function to check whether the tile is an apple (indicated by bit flag 1). 
 If it is, we then;
-* play the eating sound effect (id `2`), using the [`SND`](../api/Sound-API.html#snd-id) function,
+* play the eating sound effect (id `2`), using the [`SND`](../api/Sound-API.md#snd-id) function,
 * increase the score by `100` points,
 * move the apple to a new random location, using our `MoveApple` function, and
 * make the snake grow by another segment, using our `Grow` function.
@@ -420,7 +420,7 @@ end)
 
 The last system we need to create is our render system. This system will consist of four parts; drawing the tiles in the level, drawing the entities, printing the score, and showing a "Game Over" message when the snake has died.
 
-We'll start by iterating through the visible tiles using a nested for-loop. In it, we'll use the [`Map`](../api/level-api/Level-Functions.html#map-x-y) function to get the tile, which we can then draw using the [`TILE`](../api/Graphics-API.html#tile-id-x-y) function.
+We'll start by iterating through the visible tiles using a nested for-loop. In it, we'll use the [`Map`](../api/level-api/Level-Functions.md#map-x-y) function to get the tile, which we can then draw using the [`TILE`](../api/Graphics-API.md#tile-id-x-y) function.
 ```lua
 -- DRAW is used to register a
 -- a function that should be
@@ -435,7 +435,7 @@ DRAW(function ()
   end
 ...
 ```
-Next, we'll iterate through all entities with a `"pos"` and `"img"` component using the [`ALL`](../api/level-api/Level-Functions.html#all-class) function, and draw them with the [`TILE`](../api/Graphics-API.html#tile-id-x-y) function.
+Next, we'll iterate through all entities with a `"pos"` and `"img"` component using the [`ALL`](../api/level-api/Level-Functions.md#all-class) function, and draw them with the [`TILE`](../api/Graphics-API.md#tile-id-x-y) function.
 
 ```lua
 ...
@@ -447,7 +447,7 @@ Next, we'll iterate through all entities with a `"pos"` and `"img"` component us
 ...
 ```
 
-Next we'll use the [`TXT`](../api/Graphics-API.html#txt-str-x-y-clear) function to print the current score at the top of the screen.
+Next we'll use the [`TXT`](../api/Graphics-API.md#txt-str-x-y-clear) function to print the current score at the top of the screen.
 
 ```lua
 ...
@@ -456,7 +456,7 @@ Next we'll use the [`TXT`](../api/Graphics-API.html#txt-str-x-y-clear) function 
 ...
 ```
 
-Finally, we'll check to see if the player has died; if so, we'll use the [`TXT`](../api/Graphics-API.html#txt-str-x-y-clear) function to show a simple "Game Over" message.
+Finally, we'll check to see if the player has died; if so, we'll use the [`TXT`](../api/Graphics-API.md#txt-str-x-y-clear) function to show a simple "Game Over" message.
 
 ```lua
 ...

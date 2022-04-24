@@ -1,35 +1,35 @@
 # API Reference
 
-* [Utility Functions](./api/Utility-Functions.html)
+* [Utility Functions](./api/Utility-Functions.md)
 
-* [Math API](./api/Math-API.html)
+* [Math API](./api/Math-API.md)
 
-    * [Math Constants](./api/math-api/Math-Constants.html)
+    * [Math Constants](./api/math-api/Math-Constants.md)
 
-    * [General Math Functions](./api/math-api/General-Math-Functions.html)
+    * [General Math Functions](./api/math-api/General-Math-Functions.md)
 
-    * [Trigometric and Hyperbolic Functions](./api/math-api/Trigometric-And-Hyperbolic-Functions.html)
+    * [Trigometric and Hyperbolic Functions](./api/math-api/Trigometric-And-Hyperbolic-Functions.md)
 
-    * [Bitwise Operators](./api/math-api/Bitwise-Operators.html)
+    * [Bitwise Operators](./api/math-api/Bitwise-Operators.md)
 
-    * [Interpolation Functions](./api/math-api/Interpolation-Functions.html)
+    * [Interpolation Functions](./api/math-api/Interpolation-Functions.md)
 
-* [Randomness API](./api/Randomness-API.html)
+* [Randomness API](./api/Randomness-API.md)
 
-* [Graphics API](./api/Graphics-API.html)
+* [Graphics API](./api/Graphics-API.md)
 
-* [Input API](./api/Input-API.html)
+* [Input API](./api/Input-API.md)
 
-* [Sound API](./api/Sound-API.html)
+* [Sound API](./api/Sound-API.md)
 
-* [Level API](./api/Level-API.html)
+* [Level API](./api/Level-API.md)
 
-    * [Level Constants](./api/level-api/Level-Constants.html)
+    * [Level Constants](./api/level-api/Level-Constants.md)
 
-    * [Level Functions](./api/level-api/Level-Functions.html)
+    * [Level Functions](./api/level-api/Level-Functions.md)
 
-* [Networking API](./api/Networking-API.html)
+* [Networking API](./api/Networking-API.md)
 
-    * [Networking Functions](./api/networking-api/Networking-Functions.html)
+    * [Networking Functions](./api/networking-api/Networking-Functions.md)
 
-    * [Networking Callbacks](./api/networking-api/Networking-Callbacks.html)
+    * [Networking Callbacks](./api/networking-api/Networking-Callbacks.md)

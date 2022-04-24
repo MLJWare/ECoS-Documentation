@@ -6,4 +6,4 @@
 
 _This section is incomplete_
 
-* [Terminal Commands](./Terminal-Commands.html)
+* [Terminal Commands](./Terminal-Commands.md)

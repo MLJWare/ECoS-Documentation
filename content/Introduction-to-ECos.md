@@ -49,4 +49,4 @@ funtions, specifically for making games for the ECoS console.
 
 ## Getting Started
 
-* [Tutorial: Snake](./tutorial/Snake.html)
+* [Tutorial: Snake](./tutorial/Snake.md)

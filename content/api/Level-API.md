@@ -1,5 +1,5 @@
 # Level API
 
-* [Level Constants](./level-api/Level-Constants.html)
+* [Level Constants](./level-api/Level-Constants.md)
 
-* [Level Functions](./level-api/Level-Functions.html)
+* [Level Functions](./level-api/Level-Functions.md)
